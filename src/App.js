@@ -9,7 +9,7 @@ const LandingPage = () => {
   
   useLayoutEffect(() => {
     
-    if (window.location.pathname === "/LandFi/" && !window.location.hash) {
+    if (window.location.pathname === "/" && !window.location.hash) {
       // First, jump to the Features section instantly (simulating /#features behavior)
       const featuresSection = document.getElementById("features");
       if (featuresSection) {
