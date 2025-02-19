@@ -1,17 +1,16 @@
 {
   "files": {
     "main.css": "/LandFi/static/css/main.e1121ae8.css",
-    "main.js": "/LandFi/static/js/main.b68255d9.js",
+    "main.js": "/LandFi/static/js/main.ac3fcb3a.js",
     "static/js/453.1b6d1c0d.chunk.js": "/LandFi/static/js/453.1b6d1c0d.chunk.js",
-    "static/media/landfi_app_svg.png": "/LandFi/static/media/landfi_app_svg.66b9b1d3b2d6ef9cf954.png",
     "static/media/landfi_app_svg.svg": "/LandFi/static/media/landfi_app_svg.5c27dcb149edf7faab718621dc8830b2.svg",
     "index.html": "/LandFi/index.html",
     "main.e1121ae8.css.map": "/LandFi/static/css/main.e1121ae8.css.map",
-    "main.b68255d9.js.map": "/LandFi/static/js/main.b68255d9.js.map",
+    "main.ac3fcb3a.js.map": "/LandFi/static/js/main.ac3fcb3a.js.map",
     "453.1b6d1c0d.chunk.js.map": "/LandFi/static/js/453.1b6d1c0d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e1121ae8.css",
-    "static/js/main.b68255d9.js"
+    "static/js/main.ac3fcb3a.js"
   ]
 }
