@@ -44,7 +44,7 @@ const LandingPage = () => {
     <div className="bg-black text-white min-h-screen font-sans relative overflow-x-hidden" style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" }}>
       {/* Static Logo with Shadow */}
       <motion.div 
-        className="absolute top-0 z-50"
+        className="absolute top z-50 -left-6 w-40 md:w-60"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -64,7 +64,7 @@ const LandingPage = () => {
   transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
 >
   {/* Left Logo Placeholder (Optional, remove if not needed) */}
-  <div className="hidden md:block"></div>
+
 
   {/* Centered Navigation Links */}
   <div className="absolute left-1/2 transform -translate-x-1/2 top-11 hidden md:flex space-x-8 text-lg font-semibold">
