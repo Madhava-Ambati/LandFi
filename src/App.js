@@ -1,12 +1,27 @@
-import React, { useEffect } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { motion } from "framer-motion";
 import "./output.css";
 import Logo from "./landfi_app_svg.svg";
-import Favicon from "./landfi_app_svg.png";
-import MaskIcon from "./landfi_app_svg.svg";
+
 
 const LandingPage = () => {
-  useEffect(() => {
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
+  
+  useLayoutEffect(() => {
+    
+    if (window.location.pathname === "/" && !window.location.hash) {
+      // First, jump to the Features section instantly (simulating /#features behavior)
+      const featuresSection = document.getElementById("features");
+      if (featuresSection) {
+        featuresSection.scrollIntoView({ behavior: "instant" });
+      }
+
+      // Then, after a short delay, smoothly scroll to the top
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 100); // Adjust delay for a natural feel
+    }
+
     document.title = "LandFi - Smart Real Estate Contracts";
 
     // Hide scrollbar for WebKit browsers (Chrome, Safari)
@@ -75,9 +90,10 @@ const LandingPage = () => {
         className="text-center py-24 px-6"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+        transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
         viewport={{ once: false, amount: 0.5 }} // Ensures animation triggers on visibility
-        style={{ willChange: 'transform, opacity' }}
+        style={{ transform: "translate3d(0,0,0)" }}
+        //style={{ willChange: 'transform, opacity' }}
         key={Math.random()} // Forces re-render on scroll up/down
       >
         <h2 className="text-6xl font-bold max-w-4xl mx-auto leading-tight" style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" }}>
@@ -92,7 +108,7 @@ const LandingPage = () => {
           whileTap={{ scale: 0.95 }}
           transition={{ duration: 0.2, ease: "easeInOut" }}
           viewport={{ once: false, amount: 0.5 }}
-          style={{ willChange: 'transform, opacity' }}
+          style={{ transform: "translate3d(0,0,0)" }}
         >
           Start Investing
         </motion.button>
@@ -107,9 +123,9 @@ const LandingPage = () => {
           className="text-5xl font-bold"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+          transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
           viewport={{ once: true, amount: 0.5 }} // Trigger animation only once
-          style={{ willChange: 'transform, opacity' }}
+          //style={{ willChange: 'transform, opacity' }}
         >
           Why Choose LandFi?
         </motion.h3>
@@ -128,16 +144,16 @@ const LandingPage = () => {
               className="p-8 rounded-lg shadow-lg bg-gray-100 transition"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 + index * 0.2, ease: "easeOut" }}
+              transition={{ duration: 0.6, delay: 0.3 + index * 0.1, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.5 }} // Trigger animation only once
-              style={{ willChange: 'transform, opacity' }}
+              style={{ willChange: 'transform, opacity', transform: "translate3d(0,0,0)" }}
             >
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 + index * 0.2, ease: "easeOut" }}
+                transition={{ duration: 0.6, delay: 0.2 + index * 0.1, ease: "easeOut" }}
                 viewport={{ once: false, amount: 0.5 }} // Trigger animation only once
-                style={{ willChange: 'transform, opacity' }}
+                style={{ willChange: 'transform, opacity', transform: "translate3d(0,0,0)"}}
               >
                 <h4 className="text-2xl font-semibold">{title}</h4>
                 <p className="text-gray-600 mt-2">
@@ -179,7 +195,7 @@ const LandingPage = () => {
         <motion.p 
           className="text-gray-400 mt-4 max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0, transition: { duration: 1, delay: 0.4, ease: "easeOut" } }}
+          whileInView={{ opacity: 1, y: 0, transition: { duration: 1, delay: 0.5, ease: "easeOut" } }}
           viewport={{ once: false }}
         >
           LandFi is transforming real estate investment with fractional ownership, high liquidity, and expert-selected properties. 
@@ -191,7 +207,7 @@ const LandingPage = () => {
       <motion.section 
         className="text-center py-16"
         initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } }}
+        whileInView={{ opacity: 1, y: 0, transition: { duration: 1, delay: 0.5, ease: "easeOut" } }}
         viewport={{ once: false }}
       >
         <h3 className="text-5xl font-bold">Start Your Investment Journey</h3>
