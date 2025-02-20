@@ -48,13 +48,18 @@ const LandingPage = () => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
+        whileHover={{
+          rotate: [0, 5, -5, 5, -5, 0], // Quick shake/jiggle effect
+          transition: { duration: 0.6, ease: "easeInOut" }
+        }}
       >
         <img 
           src={Logo} 
           alt="LandFi Logo" 
-          className="h-32 md:h-32 w-auto object-contain shadow-lg shadow-primary/50" // Added shadow
+          className="h-32 md:h-32 w-auto object-contain shadow-lg shadow-primary/50"
         />
-      </motion.div>
+    </motion.div>
+
 
 
 <motion.nav 
@@ -75,15 +80,15 @@ const LandingPage = () => {
 
   {/* Right-Aligned "Get Started" Button */}
   <motion.button 
-    className="ml-auto bg-primary px-6 py-2 rounded-lg hover:bg-white hover:text-black transition shadow-lg font-semibold"
+    className="ml-auto bg-primary px-6 py-2 rounded-lg text-sm font-semibold hover:bg-white hover:text-black transition shadow-lg shadow-primary/50"
     whileHover={{ scale: 1.08 }}
     whileTap={{ scale: 0.95 }}
     transition={{ duration: 0.2, ease: "easeInOut" }}
+    style={{ fontFamily: "'Quicksand', sans-serif" }}
   >
-    Get Started
+    Get started
   </motion.button>
 </motion.nav>
-
 
       {/* Hero Section */}
       <motion.header 
@@ -91,43 +96,44 @@ const LandingPage = () => {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
-        viewport={{ once: false, amount: 0.5 }} // Ensures animation triggers on visibility
-        style={{ transform: "translate3d(0,0,0)" }}
-        //style={{ willChange: 'transform, opacity' }}
+        viewport={{ once: false, amount: 0.5 }} 
         key={Math.random()} // Forces re-render on scroll up/down
+        style={{ fontFamily: "'Quicksand', sans-serif",  fontWeight: "550" }} // Apply new font
       >
-        <h2 className="text-6xl font-bold max-w-4xl mx-auto leading-tight" style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" }}>
-          The Future of <span className="text-primary">Real Estate Investing</span>
+        <h2 className="text-8xl font-regular max-w-5xl mx-auto leading-tight">
+          <span className="text-primary">Real Estate Investing</span> made simple
         </h2>
-        <p className="text-gray-400 text-lg mt-4 max-w-2xl mx-auto" style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" }}>
+        <p className="text-gray-400 text-lg mt-4 max-w-2xl mx-auto">
           Own fractional shares of prime real estate with as little as ₹1 Lakh. No high capital, just smart investing.
         </p>
         <motion.button 
-          className="mt-6 bg-primary px-8 py-3 rounded-lg text-lg font-semibold hover:bg-white hover:text-black transition shadow-lg shadow-primary/50" // Added shadow
+          className="mt-6 bg-primary px-8 py-3 rounded-lg text-mg font-semibold hover:bg-white hover:text-black transition shadow-lg shadow-primary/50"
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.95 }}
           transition={{ duration: 0.2, ease: "easeInOut" }}
-          viewport={{ once: false, amount: 0.5 }}
-          style={{ transform: "translate3d(0,0,0)" }}
         >
-          Start Investing
+          Start investing
         </motion.button>
       </motion.header>
+
 
       {/* Features Section */}
       <motion.section 
         id="features" 
         className="py-20 px-10 bg-white text-black text-center"
+        
       >
+        
         <motion.h3 
-          className="text-5xl font-bold"
+          id="choose"
+          className="text-5xl font-regular" 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
           viewport={{ once: true, amount: 0.5 }} // Trigger animation only once
-          //style={{ willChange: 'transform, opacity' }}
+          style={{ fontFamily: "'Quicksand', sans-serif", fontWeight: "500"  }}
         >
-          Why Choose LandFi?
+          Why choose LandFi?
         </motion.h3>
 
         <div className="grid md:grid-cols-3 gap-10 mt-10 max-w-5xl mx-auto">
@@ -146,7 +152,7 @@ const LandingPage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 + index * 0.1, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.5 }} // Trigger animation only once
-              style={{ willChange: 'transform, opacity', transform: "translate3d(0,0,0)" }}
+              style={{ willChange: 'transform, opacity', transform: "translate3d(0,0,0)"}}
             >
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -158,7 +164,7 @@ const LandingPage = () => {
                 <h4 className="text-2xl font-semibold">{title}</h4>
                 <p className="text-gray-600 mt-2">
                   {index === 0 
-                    ? "Invest in real estate without needing large capital." 
+                    ? "Invest in real estate without needing large capital with our trusted community." 
                     : index === 1 
                     ? "Buy and sell shares instantly with our blockchain-powered marketplace." 
                     : index === 2
@@ -185,10 +191,11 @@ const LandingPage = () => {
         viewport={{ once: false }}
       >
         <motion.h3 
-          className="text-5xl font-bold"
+          className="text-5xl font-bold" 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0, transition: { duration: 1, delay: 0.2, ease: "easeOut" } }}
           viewport={{ once: false }}
+          style={{ fontFamily: "'Quicksand', sans-serif", fontWeight: "400"  }} 
         >
           About LandFi
         </motion.h3>
@@ -209,16 +216,17 @@ const LandingPage = () => {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0, transition: { duration: 1, delay: 0.5, ease: "easeOut" } }}
         viewport={{ once: false }}
+        style={{ fontFamily: "'Quicksand', sans-serif", fontWeight: "400" }}
       >
-        <h3 className="text-5xl font-bold">Start Your Investment Journey</h3>
+        <h3 className="text-5xl font-regular">Start Your Investment Journey</h3>
         <p className="text-gray-400 mt-2">Join thousands of smart investors today.</p>
         <motion.button 
-          className="mt-6 bg-primary px-8 py-3 rounded-lg text-lg font-semibold hover:bg-white hover:text-black transition shadow-lg shadow-primary/50" // Added shadow
+          className="mt-6 bg-primary px-8 py-3 rounded-lg text-mg font-semibold hover:bg-white hover:text-black transition shadow-lg shadow-primary/50" // Added shadow
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.95 }}
           transition={{ duration: 0.2, ease: "easeInOut" }}
         >
-          Get Started Now
+          Get started now
         </motion.button>
       </motion.section>
 
